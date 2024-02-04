@@ -60,18 +60,23 @@
 Задача 4: Напишите программу, которая на вход принимает натуральное число N, 
 а на выходе показывает его цифры через запятую.
  */
-
+// 1) Решение с разворотом
 Console.Write("Введите натуральное число: ");
-int n_num = int.Parse(Console.ReadLine()!);
-if (n_num > 0) {
-    int count = 1;
-    while(count <= n_num) {
-        if (count != n_num)
-            Console.Write($"{count}, ");
-        else
-            Console.Write($"{count}");
-        count++;
-    }
-} else {
-    Console.WriteLine("Вы ошиблись при вводе числа. \n Попробуйте еще раз");
+int n = int.Parse(Console.ReadLine()!);
+
+for(int i = (int)Math.Ceiling(Math.Log(n, 10)) - 1; i >= 0; i--) {
+    Console.Write((n / (int)Math.Pow(10, i)) % 10);
+    
+    if (i == 0)
+        Console.Write("\n");
+    else
+        Console.Write(",");
 }
+
+// 2) Решение без разворота
+/*
+Console.WriteLine(n % 10);
+while(n >= 10) {
+    n = n / 10;
+    Console.WriteLine(n % 10);
+}*/
