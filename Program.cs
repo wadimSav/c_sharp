@@ -40,18 +40,38 @@
  [10, 99] и показывает наибольшую цифру числа.
  */
 
-Console.Write("Введите целое число от 10 до 99 включительно: ");
-int in_num = int.Parse(Console.ReadLine()!);
-if (in_num < 10 || in_num > 99) {
-    Console.WriteLine("Ваше число не входит в заданый диапазон");
-} else {
-    int first_num = in_num / 10;
-    int second_num = in_num % 10;
-    if (first_num > second_num) {
-        Console.WriteLine($"{first_num} первая цифра больше");
-    } else if (first_num < second_num) {
-        Console.WriteLine($"{second_num} вторая цифра больше");
-    } else {
-        Console.WriteLine($"{second_num} и {first_num} равны");
+// Console.Write("Введите целое число от 10 до 99 включительно: ");
+// int in_num = int.Parse(Console.ReadLine()!);
+// if (in_num < 10 || in_num > 99) {
+//     Console.WriteLine("Ваше число не входит в заданый диапазон");
+// } else {
+//     int first_num = in_num / 10;
+//     int second_num = in_num % 10;
+//     if (first_num > second_num) {
+//         Console.WriteLine($"{first_num} первая цифра больше");
+//     } else if (first_num < second_num) {
+//         Console.WriteLine($"{second_num} вторая цифра больше");
+//     } else {
+//         Console.WriteLine($"{second_num} и {first_num} равны");
+//     }
+// }
+
+/* 
+Задача 4: Напишите программу, которая на вход принимает натуральное число N, 
+а на выходе показывает его цифры через запятую.
+ */
+
+Console.Write("Введите натуральное число: ");
+int n_num = int.Parse(Console.ReadLine()!);
+if (n_num > 0) {
+    int count = 1;
+    while(count <= n_num) {
+        if (count != n_num)
+            Console.Write($"{count}, ");
+        else
+            Console.Write($"{count}");
+        count++;
     }
+} else {
+    Console.WriteLine("Вы ошиблись при вводе числа. \n Попробуйте еще раз");
 }
