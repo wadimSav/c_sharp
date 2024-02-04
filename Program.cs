@@ -17,20 +17,41 @@
  в которой находится эта точка.
  */
 
-Console.Write("введите координату X: ");
-int numX = int.Parse(Console.ReadLine()!);
-Console.Write("введите координату Y: ");
-int numY = int.Parse(Console.ReadLine()!);
-if (numX != 0 && numY != 0) {
-    if (numX > 0 && numY > 0) {
-        Console.Write("Номер координатной четверти равен 1");
-    } else if (numX < 0 && numY > 0) {
-        Console.Write("Номер координатной четверти равен 2");
-    } else if (numX < 0 && numY < 0) {
-        Console.Write("Номер координатной четверти равен 3");
-    } else if (numX > 0 && numY < 0) {
-        Console.Write("Номер координатной четверти равен 4");
-    }
+// Console.Write("введите координату X: ");
+// int numX = int.Parse(Console.ReadLine()!);
+// Console.Write("введите координату Y: ");
+// int numY = int.Parse(Console.ReadLine()!);
+// if (numX != 0 && numY != 0) {
+//     if (numX > 0 && numY > 0) {
+//         Console.Write("Номер координатной четверти равен 1");
+//     } else if (numX < 0 && numY > 0) {
+//         Console.Write("Номер координатной четверти равен 2");
+//     } else if (numX < 0 && numY < 0) {
+//         Console.Write("Номер координатной четверти равен 3");
+//     } else if (numX > 0 && numY < 0) {
+//         Console.Write("Номер координатной четверти равен 4");
+//     }
+// } else {
+//     Console.Write($"{numX} и {numY} не должны быть равны 0");
+// }
+
+/* 
+Задача 3: Напишите программу, которая принимает на вход целое число из отрезка
+ [10, 99] и показывает наибольшую цифру числа.
+ */
+
+Console.Write("Введите целое число от 10 до 99 включительно: ");
+int in_num = int.Parse(Console.ReadLine()!);
+if (in_num < 10 || in_num > 99) {
+    Console.WriteLine("Ваше число не входит в заданый диапазон");
 } else {
-    Console.Write($"{numX} и {numY} не должны быть равны 0");
+    int first_num = in_num / 10;
+    int second_num = in_num % 10;
+    if (first_num > second_num) {
+        Console.WriteLine($"{first_num} первая цифра больше");
+    } else if (first_num < second_num) {
+        Console.WriteLine($"{second_num} вторая цифра больше");
+    } else {
+        Console.WriteLine($"{second_num} и {first_num} равны");
+    }
 }
