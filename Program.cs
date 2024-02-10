@@ -1,24 +1,27 @@
 ﻿/* 
-Задача 1: Напишите программу, которая бесконечно запрашивает целые числа с консоли.
-Программа завершается при вводе символа ‘q’ или при вводе числа, сумма цифр которого чётная.
+Задача 2: Задайте массив заполненный случайными трёхзначными числами. 
+Напишите программу, которая покажет количество чётных чисел в массиве.
 */
-void questNumber () {
-    while(true) {
-        Console.WriteLine("Ввведите целое число: ");
-        string str = Console.ReadLine()!;
-        int number;
-        int num = 0;
 
-        if(str == "q") break;
-        
-        if(int.TryParse(str, out number)){
-            for(int i = 0; i < str.Length; i++){
-                num += str[i] - '0';
-                Console.WriteLine(num);
-            }
-            if(num % 2 == 0) break;
-        }
-    }
+Console.Clear();
+Console.Write("Введите кол-во чисел: ");
+int n = int.Parse(Console.ReadLine()!);
+int[] array = new int[n];
+
+int[] inputArray(int[] array){
+    for (int i = 0; i < array.Length; i++)
+        array[i] = new Random().Next(100, 1000); // [100, 999]
+    return array;
 }
 
-questNumber();
+void countEvenNumbers (int[] array) {
+    int count = 0;
+    Console.WriteLine($"Начальный массив: [{string.Join(", ", array)}]");
+    foreach (int element in array){
+        if (element % 2 == 0)
+            count++;
+    }
+    Console.WriteLine(count);
+}
+
+countEvenNumbers(inputArray(array));
